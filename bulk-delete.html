@@ -1,0 +1,37 @@
+<input id="checked-{{ $value->id }}" type="checkbox" name="checkbox" value="{{ $value->id }}" /><label for="checked-{{ $value->id }}"></label>
+
+<form id="bulkDelete" method="post">@csrf<input id="selectAll" type="checkbox"><label for='selectAll'></label><button class="btn btn-sm btn-danger ml-2">Delete all</button></form>
+
+<script>
+    $("#selectAll").click(function() {
+        $("input[type=checkbox]").prop("checked", $(this).prop("checked"));
+    });
+
+    $("input[type=checkbox]").click(function() {
+        if (!$(this).prop("checked")) {
+            $("#selectAll").prop("checked", false);
+        }
+    });
+
+    $(document).on('submit','form#bulkDelete',function(e){
+        e.preventDefault();
+        let bulk_data_id = [];
+        $('input[name="checkbox"]:checked').each(function(){
+            bulk_data_id.push($(this).val())
+        });
+        $.ajax({
+            type: "post",
+            url: "{{ route('admin.test-center.bulk-delete') }}",
+            data: {
+                bulk_data_id:bulk_data_id
+            },
+            dataType: "json",
+            success: function (response) {
+                if (response.status == 'success') {
+                    flashMessage(response.status,response.message);
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>

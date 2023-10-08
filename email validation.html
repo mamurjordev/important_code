@@ -1,0 +1,23 @@
+
+<input type="email" onkeyup="ValidateEmail()" class="form-control shadow-none input-sm" name="email" id="email" placeholder="Email">
+<div class="text-danger" id="email-error"></div>
+
+
+<script>
+    // email Validation in Javascript 
+    function ValidateEmail(){
+
+        let emailField = $('#email').val();
+        let emailError = $('#email-error');
+
+        if (!emailField.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            emailError.text('Please Enter a valid email');
+            emailError.attr('style', 'color:red !important');
+            return false;
+        }else{
+            emailError.text('Valid Email');
+            emailError.attr('style', 'color:green !important');
+            return true;
+        }
+    }
+</script>
