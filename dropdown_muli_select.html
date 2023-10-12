@@ -1,0 +1,59 @@
+<style>
+    details {
+            display: inline-block;
+            width: 100%;
+            background-color: white;
+            cursor: pointer;
+        }
+        select,
+        summary {
+            border: 1px solid var(--lt-gray);
+            border-collapse: collapse;
+            border-radius: 4px;
+            padding: 4px;
+            width: 100%;
+            background-color: white;
+            cursor: pointer;
+        }
+        details[open] > summary::marker {
+            color: var(--blue);
+        }
+        /* select:focus,
+        summary:focus,
+        summary:active {
+            box-shadow: 0 0 5px 1px var(--blue);
+        } */
+
+        details ul {
+            list-style: none;
+            margin: 0px;
+            padding: 10px;
+            margin-top: 2px;
+            border: 1px solid var(--dk-gray);
+            width: 100%;
+        }
+        details ul li {
+            margin: 0px;
+            padding: 3px 0;
+        }
+        li > label {
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+        }
+        li > label > span {
+            margin-left: 10px;
+        }
+        details ul li > label:hover,
+        details ul li > label:has(input:checked) {
+            background-color: var(--dk-gray);
+            color: white;
+        }
+</style>
+<details class="from-control position-relative">
+    <summary>Select a field</summary>
+    <ul class="position-absolute bg-white" id="select_one_more">
+        <li><label><input type="checkbox" name="fc" value="select" data="service_select"><span>Service Select - select</span></label></li><li><label><input type="checkbox" name="fc" value="checkbox-group" data="service_checkbox"><span>Service Checkbox - checkbox-group</span></label></li><li><label><input type="checkbox" name="fc" value="radio-group" data="service_radio"><span>Service Radio - radio-group</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="fname"><span>First Name - text</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="lname"><span>Last Name - text</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="username"><span>username - text</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="email"><span>Email - text</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="phone"><span>Phone - text</span></label></li><li><label><input type="checkbox" name="fc" value="radio-group" data="email_opt_in"><span>Email Opt-In - radio-group</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="password"><span>Password - text</span></label></li><li><label><input type="checkbox" name="fc" value="radio-group" data="payment_type_select"><span>Payment Method - radio-group</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="order_tile"><span>Order tile - text</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="single_line"><span>Single line of text - text</span></label></li><li><label><input type="checkbox" name="fc" value="date" data="order_date"><span>Date Field - date</span></label></li><li><label><input type="checkbox" name="fc" value="select" data="dropdown_select"><span>Dropdown - select</span></label></li><li><label><input type="checkbox" name="fc" value="text" data="order_date"><span>Secret text - text</span></label></li><li><label><input type="checkbox" name="fc" value="file" data="user_avatar"><span>Avatar - file</span></label></li><li><label><input type="checkbox" name="fc" value="header" data="undefined"><span>Heading - header</span></label></li>
+    </ul>
+</details>
